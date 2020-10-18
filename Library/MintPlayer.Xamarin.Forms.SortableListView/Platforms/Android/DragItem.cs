@@ -1,6 +1,6 @@
 ﻿namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 {
-    public class DragItem : Java.Lang.Object
+    internal class DragItem : Java.Lang.Object
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DragItem"/> class.

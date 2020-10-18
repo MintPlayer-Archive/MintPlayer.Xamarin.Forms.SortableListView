@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 {
-    public class DragListAdapter : global::Android.Widget.BaseAdapter, global::Android.Widget.IWrapperListAdapter, global::Android.Views.View.IOnDragListener, global::Android.Widget.AdapterView.IOnItemLongClickListener
+    internal class DragListAdapter : global::Android.Widget.BaseAdapter, global::Android.Widget.IWrapperListAdapter, global::Android.Views.View.IOnDragListener, global::Android.Widget.AdapterView.IOnItemLongClickListener
     {
         private global::Android.Widget.IListAdapter _listAdapter;
         private global::Android.Widget.ListView _listView;

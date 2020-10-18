@@ -26,7 +26,7 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels
         }
         #endregion
         #region AllowReordering
-        private bool allowReordering;
+        private bool allowReordering = true;
         public bool AllowReordering
         {
             get => allowReordering;
