@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MintPlayer.Xamarin.Forms.SortableListView.Demo
+namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.Pages
 {
     public partial class MainPage : ContentPage
     {

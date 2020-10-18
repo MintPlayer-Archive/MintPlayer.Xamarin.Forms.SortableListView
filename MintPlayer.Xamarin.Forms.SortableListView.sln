@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{F1A148F1-FB22-446B-AF7D-84FF2813AC92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{D70A6403-5A42-484B-A6CF-96E95D3F5D8E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "SortableDemo", "{D70A6403-5A42-484B-A6CF-96E95D3F5D8E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MintPlayer.Xamarin.Forms.SortableListView", "Library\MintPlayer.Xamarin.Forms.SortableListView\MintPlayer.Xamarin.Forms.SortableListView.csproj", "{5DA1C145-26AF-4506-AB27-C715A5E4F6D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintPlayer.Xamarin.Forms.SortableListView.Demo.UWP", "Demo\MintPlayer.Xamarin.Forms.SortableListView.Demo.UWP\MintPlayer.Xamarin.Forms.SortableListView.Demo.UWP.csproj", "{135A5113-D5E8-49B7-9E27-61BEE744592D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.UWP", "SortableDemo\Demo.UWP\Demo.UWP.csproj", "{135A5113-D5E8-49B7-9E27-61BEE744592D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintPlayer.Xamarin.Forms.SortableListView.Demo.Android", "Demo\MintPlayer.Xamarin.Forms.SortableListView.Demo.Android\MintPlayer.Xamarin.Forms.SortableListView.Demo.Android.csproj", "{D8915E5E-FEBF-454A-B120-6BCBC3E86937}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Android", "SortableDemo\Demo.Android\Demo.Android.csproj", "{D8915E5E-FEBF-454A-B120-6BCBC3E86937}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintPlayer.Xamarin.Forms.SortableListView.Demo.iOS", "Demo\MintPlayer.Xamarin.Forms.SortableListView.Demo.iOS\MintPlayer.Xamarin.Forms.SortableListView.Demo.iOS.csproj", "{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.iOS", "SortableDemo\Demo.iOS\Demo.iOS.csproj", "{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MintPlayer.Xamarin.Forms.SortableListView.Demo", "Demo\MintPlayer.Xamarin.Forms.SortableListView.Demo\MintPlayer.Xamarin.Forms.SortableListView.Demo.csproj", "{77A19745-B3D6-405E-A706-A07587EEB2EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "SortableDemo\Demo\Demo.csproj", "{77A19745-B3D6-405E-A706-A07587EEB2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

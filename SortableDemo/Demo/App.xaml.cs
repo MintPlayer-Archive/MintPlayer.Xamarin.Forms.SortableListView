@@ -10,7 +10,7 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Pages.MainPage();
         }
 
         protected override void OnStart ()
