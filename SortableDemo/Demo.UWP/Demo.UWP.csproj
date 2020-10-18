@@ -143,11 +143,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9"/>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1534" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Library\MintPlayer.Xamarin.Forms.SortableListView\MintPlayer.Xamarin.Forms.SortableListView.csproj">
+      <Project>{5da1c145-26af-4506-ab27-c715a5e4f6d6}</Project>
+      <Name>MintPlayer.Xamarin.Forms.SortableListView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Demo\Demo.csproj">
       <Project>{63BFAC3C-97D5-45C7-924E-CDAB52B53BFC}</Project>
       <Name>Demo</Name>

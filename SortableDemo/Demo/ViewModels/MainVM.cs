@@ -14,6 +14,7 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels
         public MainVM()
         {
             LoadPlayersCommand = new Command(OnLoadPlayers);
+            EditCommand = new Command(OnEdit);
         }
 
         #region Players
@@ -24,12 +25,26 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels
             set => SetProperty(ref players, value);
         }
         #endregion
+        #region AllowReordering
+        private bool allowReordering;
+        public bool AllowReordering
+        {
+            get => allowReordering;
+            set => SetProperty(ref allowReordering, value);
+        }
+        #endregion
 
         public ICommand LoadPlayersCommand { get; }
+        public ICommand EditCommand { get; }
 
         private void OnLoadPlayers(object obj)
         {
             Players = new ObservableCollection<Person>(PlayerService.GetPlayers());
+        }
+
+        private void OnEdit(object obj)
+        {
+            AllowReordering = !AllowReordering;
         }
     }
 }

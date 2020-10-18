@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels"
+             xmlns:effects="clr-namespace:MintPlayer.Xamarin.Forms.SortableListView.Platforms.Common;assembly=MintPlayer.Xamarin.Forms.SortableListView"
              x:Class="MintPlayer.Xamarin.Forms.SortableListView.Demo.Pages.MainPage">
     <ContentPage.BindingContext>
         <vm:MainVM x:Name="viewModel" />
     </ContentPage.BindingContext>
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <ListView ItemsSource="{Binding Players}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ListView ItemsSource="{Binding Players}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" effects:Sorting.IsSortable="{Binding AllowReordering}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -19,6 +20,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Load Players" Command="{Binding LoadPlayersCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+        <Button Text="Edit" Command="{Binding EditCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
     </StackLayout>
 
 </ContentPage>
