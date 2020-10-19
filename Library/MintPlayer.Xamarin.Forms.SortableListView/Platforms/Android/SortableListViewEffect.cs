@@ -31,7 +31,8 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
             if (Control is global::Android.Widget.ListView listView)
             {
                 listView.Adapter = dragListAdapter.WrappedAdapter;
-
+                listView.SetOnDragListener(null);
+                listView.OnItemLongClickListener = null;
                 // TODO: Remove the attached listeners
             }
         }
