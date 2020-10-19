@@ -1,9 +1,6 @@
-﻿using MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android;
 
 [assembly: ResolutionGroupName("MintPlayer")]
 [assembly: ExportEffect(typeof(SortableListViewEffect), nameof(SortableListViewEffect))]

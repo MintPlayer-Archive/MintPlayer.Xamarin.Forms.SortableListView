@@ -27,9 +27,21 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Common
                 return;
             }
 
-            if (!view.Effects.Any(item => item is SortableListViewEffect))
+            if (newValue is bool boolValue)
             {
-                view.Effects.Add(new SortableListViewEffect());
+                if (boolValue)
+                {
+                    if (!view.Effects.Any(item => item is SortableListViewEffect))
+                    {
+                        view.Effects.Add(new SortableListViewEffect());
+                    }
+                }
+                else
+                {
+                    var effects = view.Effects.Where(item => item is SortableListViewEffect).ToArray();
+                    foreach (var effect in effects)
+                        view.Effects.Remove(effect);
+                }
             }
         }
     }

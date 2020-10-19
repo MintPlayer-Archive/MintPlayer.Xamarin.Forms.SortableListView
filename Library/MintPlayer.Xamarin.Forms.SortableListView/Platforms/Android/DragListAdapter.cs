@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
@@ -157,9 +159,12 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 
                     _translatedItems.Clear();
 
-                    if (_element.ItemsSource is IOrderable orderable)
+                    var itemsSourceType = _element.ItemsSource.GetType();
+                    if (itemsSourceType.IsGenericType && itemsSourceType.GetGenericTypeDefinition() == typeof(ObservableCollection<>))
                     {
-                        orderable.ChangeOrdinal(mobileItem.OriginalIndex, mobileItem.Index);
+                        var elementType = itemsSourceType.GenericTypeArguments.First();
+                        var method = typeof(ObservableCollection<>).MakeGenericType(elementType).GetMethod("Move");
+                        method.Invoke(_element.ItemsSource, new object[] { mobileItem.OriginalIndex, mobileItem.Index });
                     }
 
                     break;

@@ -34,7 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Platforms\Common\IOrderable.cs" />
     <None Remove="Platforms\Common\SortableListViewEffect.cs" />
     <None Remove="Platforms\Common\Sorting.cs" />
   </ItemGroup>
