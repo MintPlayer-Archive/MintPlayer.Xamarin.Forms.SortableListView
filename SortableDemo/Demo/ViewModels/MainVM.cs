@@ -1,9 +1,6 @@
 ﻿using MintPlayer.Xamarin.Forms.SortableListView.Demo.Models;
 using MintPlayer.Xamarin.Forms.SortableListView.Demo.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,11 +11,10 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels
         public MainVM()
         {
             LoadPlayersCommand = new Command(OnLoadPlayers);
-            EditCommand = new Command(OnEdit);
         }
 
         #region Players
-        private ObservableCollection<Person> players;
+        private ObservableCollection<Person> players = new ObservableCollection<Person>();
         public ObservableCollection<Person> Players
         {
             get => players;
@@ -35,16 +31,12 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Demo.ViewModels
         #endregion
 
         public ICommand LoadPlayersCommand { get; }
-        public ICommand EditCommand { get; }
 
         private void OnLoadPlayers(object obj)
         {
-            Players = new ObservableCollection<Person>(PlayerService.GetPlayers());
-        }
-
-        private void OnEdit(object obj)
-        {
-            AllowReordering = !AllowReordering;
+            var players = PlayerService.GetPlayers();
+            foreach (var player in players)
+                this.players.Add(player);
         }
     }
 }

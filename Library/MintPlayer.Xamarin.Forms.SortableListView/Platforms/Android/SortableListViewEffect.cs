@@ -33,7 +33,7 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
                 listView.Adapter = dragListAdapter.WrappedAdapter;
                 listView.SetOnDragListener(null);
                 listView.OnItemLongClickListener = null;
-                // TODO: Remove the attached listeners
+                dragListAdapter.Dispose();
             }
         }
 

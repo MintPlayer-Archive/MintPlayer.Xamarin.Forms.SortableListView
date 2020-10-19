@@ -25,7 +25,6 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Load Players" Command="{Binding LoadPlayersCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
-        <Button Text="Edit" Command="{Binding EditCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
     </StackLayout>
 
 </ContentPage>
