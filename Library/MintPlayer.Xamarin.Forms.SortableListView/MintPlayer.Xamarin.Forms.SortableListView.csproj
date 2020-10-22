@@ -25,12 +25,17 @@
     <Compile Include="Platforms\Common\**\*.cs" />
   </ItemGroup>
 
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
   <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
     <Compile Include="Platforms\Android\**\*.cs" />
     <Compile Include="Platforms\Common\**\*.cs" />
 
     <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
     <AndroidResource Include="Resources\**\*.axml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
+    <AndroidResource Include="Resources\drawable\*.*" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +45,10 @@
   
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1534" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
 
 </Project>

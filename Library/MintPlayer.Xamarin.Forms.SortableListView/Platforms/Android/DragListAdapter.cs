@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 {
-    internal class DragListAdapter : global::Android.Widget.BaseAdapter, global::Android.Widget.IWrapperListAdapter, global::Android.Views.View.IOnDragListener, global::Android.Widget.AdapterView.IOnItemLongClickListener
+    internal class DragListAdapter : global::Android.Widget.BaseAdapter, global::Android.Widget.IWrapperListAdapter, global::Android.Views.View.IOnDragListener, global::Android.Widget.AdapterView.IOnItemClickListener //, global::Android.Widget.AdapterView.IOnItemLongClickListener
     {
         private global::Android.Widget.IListAdapter _listAdapter;
         private global::Android.Widget.ListView _listView;
@@ -67,9 +67,25 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 
         public override global::Android.Views.View GetView(int position, global::Android.Views.View convertView, global::Android.Views.ViewGroup parent)
         {
-            var view = WrappedAdapter.GetView(position, convertView, parent);
-            view.SetOnDragListener(this);
-            return view;
+            var innerView = WrappedAdapter.GetView(position, convertView, parent);
+            //innerView.SetOnDragListener(this);
+
+
+            var draggableView = new global::Android.Widget.LinearLayout(_listView.Context)
+            {
+                Orientation = global::Android.Widget.Orientation.Horizontal
+            };
+            //var imageView = new global::Android.Widget.ImageView(_listView.Context);
+            //imageView.SetImageResource(Resource.Id.drag_indicator);
+            //draggableView.AddView(imageView);
+
+            var label = new global::Android.Widget.TextView(draggableView.Context) { Text = "Hello" };
+            label.SetOnDragListener(this);
+            label.SetOnTouchListener(this);
+            draggableView.AddView(label);
+            draggableView.AddView(innerView);
+
+            return draggableView;
         }
 
         public override bool IsEnabled(int position)
@@ -259,5 +275,26 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
             return position - _listView.HeaderViewsCount;
         }
 
+        public void OnItemClick(global::Android.Widget.AdapterView parent, global::Android.Views.View view, int position, long id)
+        {
+            var selectedItem = ((IList)_element.ItemsSource)[(int)id];
+
+            DragItem dragItem = new DragItem(NormalizeListPosition(position), view, selectedItem);
+
+            var data = global::Android.Content.ClipData.NewPlainText(string.Empty, string.Empty);
+
+            global::Android.Views.View.DragShadowBuilder shadowBuilder = new global::Android.Views.View.DragShadowBuilder(view);
+
+            view.Visibility = global::Android.Views.ViewStates.Invisible;
+
+            if (global::Android.OS.Build.VERSION.SdkInt >= global::Android.OS.BuildVersionCodes.N)
+            {
+                view.StartDragAndDrop(data, shadowBuilder, dragItem, 0);
+            }
+            else
+            {
+                view.StartDrag(data, shadowBuilder, id, 0);
+            }
+        }
     }
 }
