@@ -4,13 +4,13 @@
     <TargetFrameworks>netstandard2.0;Xamarin.iOS10;MonoAndroid10.0;uap10.0.17763</TargetFrameworks>
     <Company>MintPlayer</Company>
     <Authors>Pieterjan De Clippel</Authors>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Description>This package provides an attached property for a Xamarin.Forms ListView that allows you to reorder the items in the ListView</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/MintPlayer/MintPlayer.Xamarin.Forms.SortableListView</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageId>MintPlayer.MVVM</PackageId>
-    <Product>MintPlayer.MVVM</Product>
+    <PackageId>MintPlayer.Xamarin.Forms.SortableListView</PackageId>
+    <Product>MintPlayer.Xamarin.Forms.SortableListView</Product>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageTags>Xamarin.Forms, ListView, Sort</PackageTags>
