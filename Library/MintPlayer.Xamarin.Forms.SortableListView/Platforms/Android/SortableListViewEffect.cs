@@ -2,7 +2,7 @@
 using Xamarin.Forms.Platform.Android;
 using MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android;
 
-[assembly: ResolutionGroupName("MintPlayer")]
+[assembly: ResolutionGroupName("MintPlayer.Xamarin.Forms.SortableListView")]
 [assembly: ExportEffect(typeof(SortableListViewEffect), nameof(SortableListViewEffect))]
 namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 {
