@@ -9,9 +9,6 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
     public class SortableListViewEffect : PlatformEffect
     {
         private DragListAdapter dragListAdapter = null;
-        public SortableListViewEffect()
-        {
-        }
 
         protected override void OnAttached()
         {

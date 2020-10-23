@@ -40,7 +40,9 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Common
                 {
                     var effects = view.Effects.Where(item => item is SortableListViewEffect).ToArray();
                     foreach (var effect in effects)
+                    {
                         view.Effects.Remove(effect);
+                    }
                 }
             }
         }

@@ -10,10 +10,10 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 {
     internal class DragListAdapter : global::Android.Widget.BaseAdapter, global::Android.Widget.IWrapperListAdapter, global::Android.Views.View.IOnDragListener, global::Android.Widget.AdapterView.IOnItemLongClickListener
     {
-        private global::Android.Widget.IListAdapter _listAdapter;
-        private global::Android.Widget.ListView _listView;
-        private global::Xamarin.Forms.ListView _element;
-        private List<global::Android.Views.View> _translatedItems = new List<global::Android.Views.View>();
+        private global::Android.Widget.IListAdapter listAdapter;
+        private global::Android.Widget.ListView listView;
+        private readonly global::Xamarin.Forms.ListView element;
+        private List<global::Android.Views.View> translatedItems = new List<global::Android.Views.View>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DragListAdapter"/> class.
@@ -29,16 +29,16 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
         /// </param>
         public DragListAdapter(global::Android.Widget.ListView listView, global::Xamarin.Forms.ListView element)
         {
-            _listView = listView;
-            _listAdapter = ((global::Android.Widget.IWrapperListAdapter)_listView.Adapter).WrappedAdapter;
-            _element = element;
+            this.listView = listView;
+            listAdapter = ((global::Android.Widget.IWrapperListAdapter)this.listView.Adapter).WrappedAdapter;
+            this.element = element;
         }
 
-        public bool DragDropEnabled { get; set; } = false;
+        public bool DragDropEnabled { get; set; }
 
         #region IWrapperListAdapter Members
 
-        public global::Android.Widget.IListAdapter WrappedAdapter => _listAdapter;
+        public global::Android.Widget.IListAdapter WrappedAdapter => listAdapter;
 
         public override int Count => WrappedAdapter.Count;
 
@@ -113,13 +113,11 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 
                         // Keep a list of items that has translation so we can reset
                         // them once the drag'n'drop is finished.
-                        _translatedItems.Add(v);
-                        _listView.Invalidate();
+                        translatedItems.Add(v);
+                        listView.Invalidate();
                     }
                     break;
                 case global::Android.Views.DragAction.Location:
-                    //_currentPosition = (int)e.GetY();
-                    //System.Diagnostics.Debug.WriteLine($"DragAction.Location from {v.GetType()} => {_currentPosition}");
                     break;
                 case global::Android.Views.DragAction.Exited:
                     System.Diagnostics.Debug.WriteLine($"DragAction.Entered from {v.GetType()}");
@@ -127,18 +125,12 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
                     if (!(v is global::Android.Widget.ListView))
                     {
                         var positionEntered = GetListPositionForView(v);
-                        var item1 = _listAdapter.GetItem(positionEntered);
-
-                        System.Diagnostics.Debug.WriteLine($"DragAction.Exited index {positionEntered}");
+                        var item = listAdapter.GetItem(positionEntered);
+                        System.Diagnostics.Debug.WriteLine($"DragAction.Exited index {positionEntered}, item {item}");
                     }
                     break;
                 case global::Android.Views.DragAction.Drop:
-
-
                     System.Diagnostics.Debug.WriteLine($"DragAction.Drop from {v.GetType()}");
-
-                    //}
-
                     break;
                 case global::Android.Views.DragAction.Ended:
                     if (!(v is global::Android.Widget.ListView))
@@ -152,19 +144,19 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 
                     mobileItem.View.Visibility = global::Android.Views.ViewStates.Visible;
 
-                    foreach (var view in _translatedItems)
+                    foreach (var view in translatedItems)
                     {
                         view.TranslationY = 0;
                     }
 
-                    _translatedItems.Clear();
+                    translatedItems.Clear();
 
-                    var itemsSourceType = _element.ItemsSource.GetType();
+                    var itemsSourceType = element.ItemsSource.GetType();
                     if (itemsSourceType.IsGenericType && itemsSourceType.GetGenericTypeDefinition() == typeof(ObservableCollection<>))
                     {
                         var elementType = itemsSourceType.GenericTypeArguments.First();
                         var method = typeof(ObservableCollection<>).MakeGenericType(elementType).GetMethod("Move");
-                        method.Invoke(_element.ItemsSource, new object[] { mobileItem.OriginalIndex, mobileItem.Index });
+                        method.Invoke(element.ItemsSource, new object[] { mobileItem.OriginalIndex, mobileItem.Index });
                     }
 
                     break;
@@ -193,7 +185,7 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
         /// </returns>
         public bool OnItemLongClick(global::Android.Widget.AdapterView parent, global::Android.Views.View view, int position, long id)
         {
-            var selectedItem = ((IList)_element.ItemsSource)[(int)id];
+            var selectedItem = ((IList)element.ItemsSource)[(int)id];
 
             DragItem dragItem = new DragItem(NormalizeListPosition(position), view, selectedItem);
 
@@ -251,12 +243,12 @@ namespace MintPlayer.Xamarin.Forms.SortableListView.Platforms.Android
 
         private int GetListPositionForView(global::Android.Views.View view)
         {
-            return NormalizeListPosition(_listView.GetPositionForView(view));
+            return NormalizeListPosition(listView.GetPositionForView(view));
         }
 
         private int NormalizeListPosition(int position)
         {
-            return position - _listView.HeaderViewsCount;
+            return position - listView.HeaderViewsCount;
         }
 
     }
