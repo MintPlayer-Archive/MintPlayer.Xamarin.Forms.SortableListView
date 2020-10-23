@@ -6,5 +6,5 @@ before_install:
 install:
  - dotnet restore
 script:
- - dotnet build ./MintPlayer.Xamarin.Forms.SortableListView/MintPlayer.Xamarin.Forms.SortableListView.csproj --configuration Release
+ - msbuild /p:Configuration=Debug Library/MintPlayer.Xamarin.Forms.SortableListView/MintPlayer.Xamarin.Forms.SortableListView.csproj
 sudo: required
