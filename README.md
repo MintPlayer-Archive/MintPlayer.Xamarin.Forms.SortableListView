@@ -15,6 +15,8 @@ Open the NuGet package manager and install `MintPlayer.Xamarin.Forms.SortableLis
 Install-Package MintPlayer.Xamarin.Forms.SortableListView
 
 ## Usage
+### Requirements
+Currently, your android project must target Android 10 (Q) in order for the effect to work.
 ### Simple
 Apply the effect on a Xamarin.Forms.ListView
 
