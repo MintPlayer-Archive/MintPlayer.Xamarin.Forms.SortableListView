@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{F1A148F1-FB22-446B-AF7D-84FF2813AC92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "SortableDemo", "{D70A6403-5A42-484B-A6CF-96E95D3F5D8E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{D70A6403-5A42-484B-A6CF-96E95D3F5D8E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MintPlayer.Xamarin.Forms.SortableListView", "Library\MintPlayer.Xamarin.Forms.SortableListView\MintPlayer.Xamarin.Forms.SortableListView.csproj", "{5DA1C145-26AF-4506-AB27-C715A5E4F6D6}"
 EndProject
@@ -62,6 +62,8 @@ Global
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|ARM.Build.0 = Debug|ARM
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|ARM.Deploy.0 = Debug|ARM
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|iPhone.ActiveCfg = Debug|x86
+		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|iPhone.Build.0 = Debug|x86
+		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|iPhone.Deploy.0 = Debug|x86
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|x64.ActiveCfg = Debug|x64
 		{135A5113-D5E8-49B7-9E27-61BEE744592D}.Debug|x64.Build.0 = Debug|x64
@@ -121,6 +123,7 @@ Global
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|ARM.ActiveCfg = Debug|iPhoneSimulator
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|iPhone.Build.0 = Debug|iPhone
+		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|iPhone.Deploy.0 = Debug|iPhone
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{E6A967F4-B278-4C1E-8D47-7E9DBC166D7E}.Debug|x64.ActiveCfg = Debug|iPhoneSimulator
