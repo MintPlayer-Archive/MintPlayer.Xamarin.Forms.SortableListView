@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MintPlayer.Xamarin.Forms.SortableListView.DemoTwo.ViewModels"
+             xmlns:effects="clr-namespace:MintPlayer.Xamarin.Forms.SortableListView.Platforms.Common;assembly=MintPlayer.Xamarin.Forms.SortableListView"
+             x:Class="MintPlayer.Xamarin.Forms.SortableListView.DemoTwo.Pages.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainVM x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">Hold down an item for 1 second, in order to move it around.</Label>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            <Switch IsToggled="{Binding AllowReordering, Mode=TwoWay}" HorizontalOptions="Start" VerticalOptions="Center" />
+            <Label Text="Allow reordering" HorizontalOptions="Start" VerticalOptions="Center" />
+        </StackLayout>
+        <ListView ItemsSource="{Binding Players}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" effects:Sorting.IsSortable="{Binding AllowReordering}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" Margin="5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Load Players" Command="{Binding LoadPlayersCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="End" />
+    </StackLayout>
+
+</ContentPage>
